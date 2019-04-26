@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: weaveworksdemos/user:0.4.7
+        image: weaveworksdemos/user:master-af5e0a7e
         resources:
           limits:
             cpu: 300m
@@ -33,9 +33,9 @@ spec:
           runAsUser: 10001
           capabilities:
             drop:
-              - all
+            - all
             add:
-              - NET_BIND_SERVICE
+            - NET_BIND_SERVICE
           readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:

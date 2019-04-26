@@ -15,25 +15,25 @@ spec:
     spec:
       containers:
       - name: orders-db
-        image: mongo
+        image: mongo:4.1
         ports:
         - name: mongo
           containerPort: 27017
         securityContext:
           capabilities:
             drop:
-              - all
+            - all
             add:
-              - CHOWN
-              - SETGID
-              - SETUID
+            - CHOWN
+            - SETGID
+            - SETUID
           readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume
       volumes:
-        - name: tmp-volume
-          emptyDir:
-            medium: Memory
+      - name: tmp-volume
+        emptyDir:
+          medium: Memory
       nodeSelector:
         beta.kubernetes.io/os: linux
